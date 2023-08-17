@@ -9,11 +9,12 @@ export default function Form() {
     comments: "",
     isFriendly: true,
     employment: "",
-    favColor:""
+    favColor: "",
   });
 
-
   function handleEvent(event) {
+    console.log(formData);
+
     const { name, value, type, checked } = event.target;
     setFormData((prevFormData) => {
       return {
@@ -24,10 +25,9 @@ export default function Form() {
   }
 
   function handleSubmit(event) {
-    event.preventDefault()   // prevents from reloading this page and load the default value
+    event.preventDefault(); // prevents from reloading this page and load the default value
     // submitApi(formData)
     console.log(formData);
-    
   }
 
   return (
@@ -116,11 +116,16 @@ export default function Form() {
       <br />
       <label htmlFor="favColor">what is your fav color?</label>
       <br />
-      <select  id="favColor" value={formData.favColor} onChange={handleEvent} name="favColor">
-      <option value="">-- choose --</option>
-      <option value="red">red</option>
-      <option value="blue">blue</option>
-      <option value="pink">pink</option>
+      <select
+        id="favColor"
+        value={formData.favColor}
+        onChange={handleEvent}
+        name="favColor"
+      >
+        <option value="">-- choose --</option>
+        <option value="red">red</option>
+        <option value="blue">blue</option>
+        <option value="pink">pink</option>
       </select>
       <br />
 
